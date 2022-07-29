@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Http\Controllers\LibroController;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,3 +18,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/libros','LibroController@index');
+$router->post('/libros','LibroController@guardar');
