@@ -5,12 +5,16 @@ use Illuminate\Http\Request;
 use App\Models\Libro;
 use Symfony\Component\Console\Input\Input;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class LibroController extends Controller{
 
-    public function index(Request $req){
-        // $datosLibro=Libro::all();
-        return response()->json($req);
+    public function index(){
+        $libro= new Libro();
+        // $products = DB::table('libros')->get();
+        $datosLibro=libro::all();
+
+        return response()->json($datosLibro);
     }
 
     public function guardar(Request $req){
@@ -27,5 +31,13 @@ class LibroController extends Controller{
         }
        
         return response()->json($nuevoNombre);
+    }
+
+    public function leer(Request $req){
+        $libro=new Libro();
+        $todos=DB::table('Libro') // ese codigo aun no esta operativo
+        // ->where('id',$req)
+        ->get();
+        return  response()->json($todos);
     }
 }
