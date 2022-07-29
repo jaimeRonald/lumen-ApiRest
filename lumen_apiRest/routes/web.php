@@ -21,3 +21,4 @@ $router->get('/', function () use ($router) {
 
 $router->get('/libros','LibroController@index');
 $router->post('/libros','LibroController@guardar');
+$router->put('/libros/{id}',"LibroController@update");
