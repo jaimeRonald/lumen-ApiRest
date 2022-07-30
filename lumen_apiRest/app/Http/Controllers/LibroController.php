@@ -34,10 +34,12 @@ class LibroController extends Controller{
     }
 
     public function leer(Request $req){
-        $libro=new Libro();
+        // $libro=new Libro();
+        // $variable="";
         $todos=DB::table('Libro') // ese codigo aun no esta operativo
         // ->where('id',$req)
         ->get();
-        return  response()->json($todos);
+        return  response()->json($todos);// este conebtario es desde la cuenta de alvaro 
+        
     }
 }
